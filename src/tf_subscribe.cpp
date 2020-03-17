@@ -48,7 +48,7 @@ int main(int argc, char** argv){
 	   {
 	     tf::StampedTransform echo_transform;
              //echoListener.tf.lookupTransform("map", "base_footprint", ros::Time(), echo_transform);
-             echoListener.tf.lookupTransform("map", "footprint", ros::Time(), echo_transform);
+             echoListener.tf.lookupTransform("map", "base_footprint", ros::Time(), echo_transform);
              double yaw, pitch, roll, th;
 	     echo_transform.getBasis().getRPY(roll, pitch, yaw);
 	     tf::Quaternion q = echo_transform.getRotation();
