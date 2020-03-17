@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>(simulation_env)</name>
+  <name>simulation_env</name>
   <version>0.0.0</version>
   <description>The (simulation_env) package</description>
 
