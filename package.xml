@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>simlation_env</name>
+  <name>(simulation_env)</name>
   <version>0.0.0</version>
-  <description>The simlation_env package</description>
+  <description>The (simulation_env) package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
