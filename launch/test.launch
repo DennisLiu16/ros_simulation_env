@@ -40,7 +40,7 @@ r -->
   <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
     <param name="publish_frequency" type="double" value="30.0" />
   </node>
-
+  <node pkg="simulation_env" name="pose_pub" type="tf_subscribe"/>
   <node pkg="rviz" name="rviz" type="rviz"/>
 
 </launch>
