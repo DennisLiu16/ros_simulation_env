@@ -196,5 +196,11 @@ include_directories(
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
 
+add_executable(tf_subscribe src/tf_subscribe.cpp)
+target_link_libraries(tf_subscribe ${catkin_LIBRARIES})
+
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+
+
