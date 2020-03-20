@@ -31,9 +31,10 @@ def Path_Publish():
     
 def Pose_sample():
     global Px, Py
-    Px.append(temp_Px[-1])
-    Py.append(temp_Py[-1])
-    Path_Publish()
+    if temp_Px != []:
+        Px.append(temp_Px[-1])
+        Py.append(temp_Py[-1])
+        Path_Publish()
     return
 
 
