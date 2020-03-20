@@ -42,6 +42,6 @@ def Pose_CB(data):
 if __name__ == '__main__':
     rospy.init_node('robot_path_pub',anonymous=True)
     rate = rospy.Rate(100)
-    sub = rospy.Subscriber("/robot_pose",Twist,posecallback)
+    sub = rospy.Subscriber("/robot_pose",Twist,Pose_CB)
     while not rospy.is_shutdown():
         rate.sleep()
