@@ -36,9 +36,9 @@
   <xacro:property name="laser_max_range" value="8.0" />
 
 
-  <xacro:include filename="$(find gazebo_sim)/urdf/minicar_description/minicar.gazebo" />
-  <xacro:include filename="$(find gazebo_sim)/urdf/minicar_description/materials.xacro" />
-  <xacro:include filename="$(find gazebo_sim)/urdf/minicar_description/macros.xacro" />
+  <xacro:include filename="$(find simulation_env)/urdf/minicar_description/minicar.gazebo" />
+  <xacro:include filename="$(find simulation_env)/urdf/minicar_description/materials.xacro" />
+  <xacro:include filename="$(find simulation_env)/urdf/minicar_description/macros.xacro" />
 
   <link name="base_footprint" />
 
