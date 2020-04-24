@@ -104,9 +104,9 @@ if __name__ == '__main__':
                 Cmd_pub(STM)
                 FeedBack_pub()
                 rate.sleep()
-                Stop_flag = 0
-                STM.close()   
-                print('ROS bye!')
+            Stop_flag = 0
+            STM.close()   
+            print('ROS bye!')
         
  
     except KeyboardInterrupt:
