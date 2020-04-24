@@ -27,20 +27,13 @@ def VW2RL(V, W):
 def RL2VW(R, L):    
     return R, L
 
-def floatmodify(NUM):
-    if NUM < 0:
-        STR = str('%.2f'%NUM)
-        if len(STR) < 6:
-            STR = STR[0] + '0' + STR[1:]
-    else:
-        STR = str('%.2f'%NUM)
-        while len(STR) < 6:
-            STR = '0' + STR
-    return STR           
+def CmdtoByte(NUM):
+    NUM_I = int(NUM*100)
+    return NUM_I.to_bytes(2,'little',signed=True)           
         
 
 def Cmd_pub(Serial):
-    Command_String = 's' + floatmodify(Cmd_R) + floatmodify(Cmd_L) + 'e'  
+    Command_String = 's'.encode() + CmdtoByte(Cmd_R) + CmdtoByte(Cmd_L) + 'e'.encode()  
     Serial.write(Command_String)
     return
 
@@ -64,6 +57,7 @@ def Connect_STM(COM, baudrate):
     except:
         print('Connect Error!')
         return 'Error'
+    print('Connect OK!')
     return ser
 
 def Read_data(Serial):
