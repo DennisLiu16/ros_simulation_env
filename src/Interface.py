@@ -9,6 +9,7 @@ import serial
 import threading
 import rospy
 from geometry_msgs.msg import Twist
+import struct
 
 feedback_vel = rospy.Publisher("FeedBack_Vel", Twist, queue_size=10)
 
@@ -29,7 +30,7 @@ def RL2VW(R, L):
 
 def CmdtoByte(NUM):
     NUM_I = int(NUM*100)
-    return NUM_I.to_bytes(2,'little',signed=True)           
+    return struct.pack("<h", NUM_I)        
         
 
 def Cmd_pub(Serial):
