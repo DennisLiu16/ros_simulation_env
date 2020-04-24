@@ -52,13 +52,15 @@ def CmdtoByte(NUM):
         
 
 def Cmd_pub(Serial):
-    Command_String = 's'.encode() + CmdtoByte(Cmd_R) + CmdtoByte(Cmd_L) + 'e'.encode()  
+    Command_String = 's'.encode() + CmdtoByte(-Cmd_R) + CmdtoByte(-Cmd_L) + 'e'.encode()  
     Serial.write(Command_String)
     return
 
 def FeedBack_pub():
     Vel_FB = Twist()
-    Vel_FB.linear.x, Vel_FB.angular.z = RL2VW(Vel_R, Vel_L)
+    V, W = RL2VW(Vel_R, Vel_L)
+    Vel_FB.linear.x = -V
+    Vel_FB.angular.z = -W
     feedback_vel.publish(Vel_FB)
     return
 
