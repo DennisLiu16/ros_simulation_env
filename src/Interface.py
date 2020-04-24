@@ -10,10 +10,13 @@ import threading
 import rospy
 from geometry_msgs.msg import Twist
 import struct
+import math
+
+PI = math.pi
 
 feedback_vel = rospy.Publisher("FeedBack_Vel", Twist, queue_size=10)
 
-COM_Name = '/dev/ttyACM3'
+COM_Name = '/dev/ttyACM2'
 BAUTRATE = 9600
 Stop_flag = 1
 
@@ -22,11 +25,26 @@ Cmd_L = 0.0
 Vel_R = 0.0
 Vel_L = 0.0
 
-def VW2RL(V, W):
-    return V, W
+Radius = 0.06
+Length = 0.275
 
-def RL2VW(R, L):    
-    return R, L
+def rpmtorads(rpm):
+    return rpm*2*PI/60
+
+def radstorpm(rads):
+    return rads*30/PI
+
+def VW2RL(V, W):
+    rad_R = (V+W*Length)/Radius
+    rad_L = (V-W*Length)/Radius
+    return radstorpm(rad_R), radstorpm(rad_L)
+
+def RL2VW(R, L):
+    rad_R = rpmtorads(R)
+    rad_L = rpmtorads(L)
+    V = Radius*(rad_R + rad_L)/2
+    W = Radius*(rad_R - rad_L)/(2*Length)    
+    return V, W
 
 def CmdtoByte(NUM):
     NUM_I = int(NUM*100)
