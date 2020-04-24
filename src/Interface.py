@@ -64,10 +64,13 @@ def Connect_STM(COM, baudrate):
 def Read_data(Serial):
     global Vel_R, Vel_L
     while(Stop_flag):
-        data = Serial.readline()
-        R, L = data.split(',')
-        Vel_R = float(R)
-        Vel_L = float(L)  
+        try:
+            data = Serial.readline()
+            R, L = data.split(',')
+            Vel_R = float(R)
+            Vel_L = float(L)
+        except Exception as e:
+            print(e, data)            
     return
     
 if __name__ == '__main__':
@@ -83,6 +86,9 @@ if __name__ == '__main__':
                 Cmd_pub(STM)
                 FeedBack_pub()
                 rate.sleep()
+                Stop_flag = 0
+                STM.close()   
+                print('ROS bye!')
         
  
     except KeyboardInterrupt:
