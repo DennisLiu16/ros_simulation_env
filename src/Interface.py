@@ -18,6 +18,9 @@ PI = math.pi
 feedback_vel = rospy.Publisher("FeedBack_Vel", Twist, queue_size=10)
 
 COM_Name = '/dev/ttyACM0'
+COM_Name = rospy.get_param('COM_Name')
+print('Connect to' + COM_Name)
+
 BAUTRATE = 9600
 Stop_flag = 1
 
@@ -118,10 +121,7 @@ if __name__ == '__main__':
                 rate.sleep()
             Stop_flag = 0
             STM.close()   
-            print('ROS bye!')
-        
+            print('ROS bye!')        
  
-    except KeyboardInterrupt:
-        Stop_flag = 0
-        STM.close()   
-        print('bye!')
+    except: 
+        print('Some error!bye!')
