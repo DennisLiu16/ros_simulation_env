@@ -11,12 +11,13 @@ import rospy
 from geometry_msgs.msg import Twist
 import struct
 import math
+import numpy
 
 PI = math.pi
 
 feedback_vel = rospy.Publisher("FeedBack_Vel", Twist, queue_size=10)
 
-COM_Name = '/dev/ttyACM2'
+COM_Name = '/dev/ttyACM0'
 BAUTRATE = 9600
 Stop_flag = 1
 
@@ -25,8 +26,17 @@ Cmd_L = 0.0
 Vel_R = 0.0
 Vel_L = 0.0
 
+# Constants
 Radius = 0.06
 Length = 0.275
+Vmax = 0.5
+Wmax = 1.0
+
+def Saturation(Value, Max_Value):
+    if abs(Value) > Max_Value:
+        return Max_Value * numpy.sign(Value)
+    else:
+        return Value
 
 def rpmtorads(rpm):
     return rpm*2*PI/60
@@ -66,8 +76,8 @@ def FeedBack_pub():
 
 def Cmd_CB(data):
     global Cmd_R, Cmd_L
-    Cmd_V = data.linear.x
-    Cmd_W = data.angular.z
+    Cmd_V = Saturation(data.linear.x, Vmax)
+    Cmd_W = Saturation(data.angular.z, Wmax)
     Cmd_R, Cmd_L = VW2RL(Cmd_V, Cmd_W)
     return
     
