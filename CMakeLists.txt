@@ -199,6 +199,9 @@ include_directories(
 add_executable(tf_subscribe src/tf_subscribe.cpp)
 target_link_libraries(tf_subscribe ${catkin_LIBRARIES})
 
+add_executable(tf_pos src/tf_pos.cpp)
+target_link_libraries(tf_pos ${catkin_LIBRARIES})
+
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
