@@ -23,7 +23,7 @@ int main(int argc, char** argv){
  
   ros::NodeHandle n;
   tf::TransformBroadcaster odom_broadcaster;
-	ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("robot_pose", 50);  
+	ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("robot_odem", 50);  
 
   double x = 0;
   double y = 0;
@@ -33,13 +33,13 @@ int main(int argc, char** argv){
   current_time = ros::Time::now();
   last_time = ros::Time::now();
  
-  ros::Rate r(100.0);
+  ros::Rate r(10.0);
   while(n.ok()){
  
     ros::spinOnce();               // check for incoming messages
     current_time = ros::Time::now();
  
-		sub = n.subscribe("feedback_Vel", 100, VelCallback);
+		sub = n.subscribe("FeedBack_Vel", 10, VelCallback);
 
     //compute odometry in a typical way given the velocities of the robot
     double dt = (current_time - last_time).toSec();
@@ -65,7 +65,7 @@ int main(int argc, char** argv){
     geometry_msgs::TransformStamped odom_trans;
     odom_trans.header.stamp = current_time;
     odom_trans.header.frame_id = "map";
-    odom_trans.child_frame_id = "base_link";
+    odom_trans.child_frame_id = "base_footprint";
  
     odom_trans.transform.translation.x = x;
     odom_trans.transform.translation.y = y;
@@ -87,7 +87,7 @@ int main(int argc, char** argv){
     odom.pose.pose.orientation.z = th;
 
     //set the velocity
-    odom.child_frame_id = "base_link";
+    odom.child_frame_id = "base_footprint";
     odom.twist.twist.linear.x = vx;
     odom.twist.twist.linear.y = vy;
     odom.twist.twist.angular.z = vth;

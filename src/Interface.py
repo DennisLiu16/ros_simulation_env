@@ -18,8 +18,6 @@ PI = math.pi
 feedback_vel = rospy.Publisher("FeedBack_Vel", Twist, queue_size=10)
 
 COM_Name = '/dev/ttyACM0'
-COM_Name = rospy.get_param('COM_Name')
-print('Connect to' + COM_Name)
 
 BAUTRATE = 9600
 Stop_flag = 1

@@ -1,0 +1,9 @@
+<launch>
+
+  <node pkg="simulation_env" name="Interface" type="Interface.py"/>
+  <node pkg="simulation_env" name="odom_pub" type="tf_pos"/>
+  <node pkg="simulation_env" name="pose_pub" type="tf_subscribe"/>
+  <node pkg="simulation_env" name="path_pub" type="path_pub.py"/>
+  <node pkg="rviz" name="rviz" type="rviz"/>
+
+</launch>
