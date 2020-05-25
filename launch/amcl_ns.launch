@@ -1,6 +1,6 @@
 <launch>
   <arg name="namespace" default="/"/>
-
+  
   <arg name="map_file" default="$(find simulation_env)/map/1F_2.yaml"/>
   <node ns="$(arg namespace)" pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
 
@@ -44,5 +44,5 @@
 	<param name="recovery_alpha_slow" value="0.0"/>
 	<param name="recovery_alpha_fast" value="0.0"/>
 	</node>
-  <node pkg="rviz" type="rviz" name="rviz" output="screen" />
+  <node pkg="rviz" type="rviz" name="rviz" output="screen" args="-d $(find simulation_env)/rviz_config/$(arg namespace).rviz"/>
 </launch>

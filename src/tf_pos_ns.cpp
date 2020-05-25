@@ -23,7 +23,7 @@ int main(int argc, char** argv){
  
   ros::NodeHandle n("~");
   tf::TransformBroadcaster odom_broadcaster;
-	ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("robot_odom", 50);  
+  ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("robot_odom", 50);  
 
   double x = 0;
   double y = 0;
@@ -50,7 +50,7 @@ int main(int argc, char** argv){
     ros::spinOnce();               // check for incoming messages
     current_time = ros::Time::now();
  
-		sub = n.subscribe("FeedBack_Vel", 10, VelCallback);
+    sub = n.subscribe("FeedBack_Vel", 10, VelCallback);
 
     //compute odometry in a typical way given the velocities of the robot
     double dt = (current_time - last_time).toSec();
