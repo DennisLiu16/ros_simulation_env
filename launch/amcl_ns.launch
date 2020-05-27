@@ -44,5 +44,5 @@
 	<param name="recovery_alpha_slow" value="0.0"/>
 	<param name="recovery_alpha_fast" value="0.0"/>
 	</node>
-  <node pkg="rviz" type="rviz" name="rviz" output="screen" args="-d $(find simulation_env)/rviz_config/$(arg namespace).rviz"/>
+  <node pkg="rviz" type="rviz" name="rviz_$(arg namespace)" output="screen" args="-d $(find simulation_env)/rviz_config/$(arg namespace).rviz"/>
 </launch>
