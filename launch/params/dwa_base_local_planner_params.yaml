@@ -80,20 +80,4 @@ escape_recovery:
     is_stop_at_local_minimum: True # True
     timeout_sec: 10.0 # 5.0 # 20.0 # sec.
 
-#wander_recovery:
-#   frequency: 20 # Hz
-#    vel_max: 0.1 # m/s
-#    vel_min: 0.05 # m/s
-#    omega_abs_max: 1 # rad/s
-#    omega_abs_min: 0.1 # rad/s
-#    num_vel_smaple: 20 # 20
-#    num_omega_sample: 20 # 20
-#    sim_time_min: 3.0 # sec. The best sim_time is about 3.0 sec.
-#    sim_time_max: 6.0 # sec. The best sim_time is about 3.0 sec.
-#    delta_sim_time: 0.1 # sec.
-#    is_reset_sim_time_at_free_space: False # True
-#    weight_consistent_speed: 2.0 #  10.0 # Relative to the original cost 254
-#    footprint_cost_stop: 1 # Once the current footprint_cost is less than or equal ot this value, return
-#    min_count_footprint_cost_stop: 10 # Minimum times that the robot stay in footprint_cost_stop
-#    is_stop_at_local_minimum: False # True
-#    timeout_sec: 10.0 # 5.0 # 20.0 # sec.
+

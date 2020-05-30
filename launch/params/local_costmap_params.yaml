@@ -3,8 +3,8 @@ plugins:
     - {name: obstacle_layer,       type: "costmap_2d::ObstacleLayer"}
     - {name: inflation_layer,      type: "costmap_2d::InflationLayer"}
 
-update_frequency: 10.0 # 20.0
-publish_frequency: 5.0 # 10.0
+update_frequency: 10.0 
+publish_frequency: 5.0 
 
 global_frame: map
 robot_base_frame: base_footprint
@@ -13,16 +13,12 @@ rolling_window: true
 
 transform_tolerance: 1.0
 
-resolution: 0.05 # 0.05
-width: 2.0 #6.0
-height: 2.0 #6.0
+resolution: 0.05 
+width: 2.0 
+height: 2.0 
 
-#footprint: [[0.18 ,0.12] , [-0.1, 0.12], [-0.1, 0.15], [-0.18, 0.15], [-0.18, -0.15], [-0.1,-0.15], [-0.1, -0.12], [0.18, -0.12]]
 footprint: [[0.17, -0.11] , [0.17, 0.11], [-0.17, 0.11], [-0.17, -0.11]]
-#footprint: [[0.175, -0.12] , [0.175, 0.12], [-0.175, 0.12], [-0.175, -0.12]]
-# footprint: [[0.3, -0.12] , [0.3, 0.12], [-0.05, 0.12], [-0.05, -0.12]]
-# footprint: [[-0.57, 0.36],[0.57, 0.36],[0.57, -0.36],[-0.57, -0.36]]
-# footprint: [[-0.57, 0.28],[-0.52, 0.33],[0.52, 0.33],[0.57, 0.28],[0.57, -0.28],[0.52,-0.33],[-0.52,-0.33],[-0.57, -0.28]]
+
 
 static_layer:
     first_map_only: false
@@ -50,5 +46,5 @@ obstacle_layer:
     ror_searching_radius: 0.1
 
 inflation_layer:
-    inflation_radius: 1.5 #0.25 #0.25 #0.25
-    cost_scaling_factor: 2.0 #20.0 # 10.0
+    inflation_radius: 1.5 
+    cost_scaling_factor: 2.0 

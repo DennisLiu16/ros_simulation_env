@@ -16,11 +16,11 @@
     <param name="local_costmap/robot_base_frame" value="$(arg namespace)/base_footprint"/>
     <param name="global_costmap/robot_base_frame" value="$(arg namespace)/base_footprint"/>
     <param name="global_costmap/laser_scan_sensor/sensor_frame" value="$(arg namespace)/laser"/>
-    <param name="global_costmap/laser_scan_sensor/topic" value="$(arg namespace)/scan"/>
+    <param name="global_costmap/laser_scan_sensor/topic" value="/$(arg namespace)/scan"/>
     <param name="local_costmap/laser_scan_sensor/sensor_frame" value="$(arg namespace)/laser"/>
-    <param name="local_costmap/laser_scan_sensor/topic" value="$(arg namespace)/scan"/>
+    <param name="local_costmap/laser_scan_sensor/topic" value="/$(arg namespace)/scan"/>
     <param name="local_costmap/obstacle_layer/laser_scan_sensor/sensor_frame" value="$(arg namespace)/laser"/>
-    <param name="local_costmap/obstacle_layer/laser_scan_sensor/topic" value="$(arg namespace)/scan"/>
+    <param name="local_costmap/obstacle_layer/laser_scan_sensor/topic" value="/$(arg namespace)/scan"/>
   </node>
   </group>
 </launch>

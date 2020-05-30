@@ -1,7 +1,7 @@
 <launch>
   <arg name="namespace" default="/"/>
   
-  <arg name="map_file" default="$(find simulation_env)/map/1F_2.yaml"/>
+  <arg name="map_file" default="$(find simulation_env)/map/Final_ver1.yaml"/>
   <node ns="$(arg namespace)" pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
 
   <!-- amcl node -->
