@@ -6,7 +6,7 @@
   
 			
 
-  <arg name="model" default="$(find simulation_env)/urdf/minicar_description/minicar.xacro"/>
+  <arg name="model" default="$(find simulation_env)/urdf/minicar_description/Car_with_flag.xacro"/>
 
   <group ns="$(arg namespace)">
 
