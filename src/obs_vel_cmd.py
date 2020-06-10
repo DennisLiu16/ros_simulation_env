@@ -3,7 +3,7 @@
 import rospy
 from geometry_msgs.msg import Twist
 
-obs_cmd_vel = rospy.Publisher("/obs/cmd_vel", Twist, queue_size=10)
+obs_cmd_vel = rospy.Publisher("/cmd_vel", Twist, queue_size=10)
 
 # Constants
 Vcmd = 0.5
