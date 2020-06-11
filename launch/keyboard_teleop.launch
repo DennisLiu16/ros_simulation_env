@@ -1,5 +1,5 @@
 <launch>
-  <arg name="namespace" default="/"/>
+  <arg name="namespace" default="robot1"/>
   <!-- turtlebot_teleop_key already has its own built in velocity smoother -->
   <node pkg="turtlebot_teleop" type="turtlebot_teleop_key" name="turtlebot_teleop_keyboard_$(arg namespace)"  output="screen">
     <param name="scale_linear" value="0.5" type="double"/>
