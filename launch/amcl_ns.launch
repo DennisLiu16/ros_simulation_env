@@ -43,8 +43,12 @@
 	<param name="transform_tolerance" value="0.1"/>
 	<param name="recovery_alpha_slow" value="0.0"/>
 	<param name="recovery_alpha_fast" value="0.0"/>
+	<param name="initial_pose_x" value="1.0"/>
+	<param name="initial_pose_y" value="-2.5"/>
+	<param name="initial_pose_a" value="3.1415926"/>
 	</node>
   <node pkg="rviz" type="rviz" name="rviz_$(arg namespace)" output="screen" args="-d $(find simulation_env)/rviz_config/$(arg namespace).rviz">
 	<remap from="/move_base_simple/goal" to="/$(arg namespace)/move_base_simple/goal"/>
+	<remap from="/initialpose" to="/$(arg namespace)/initialpose"/>
   </node>
 </launch>
