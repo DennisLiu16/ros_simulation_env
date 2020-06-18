@@ -16,5 +16,6 @@
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="headless" value="$(arg headless)"/>
   </include>
+  <include file="$(find simulation_env)/launch/Obstacle.launch"/>
 
 </launch>
