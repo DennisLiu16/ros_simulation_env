@@ -20,8 +20,8 @@ Vel_cmd.linear.x = Vcmd
 Vel_cmd.angular.z = Wcmd
 
 Goal = Twist()
-Goal.linear.x = 4.0
-Goal.linear.y = -2.5
+Goal.linear.x = 4.23
+Goal.linear.y = -2.87
 Goal.angular.z = 0
 
 
